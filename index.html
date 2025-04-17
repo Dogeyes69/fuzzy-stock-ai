@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Fuzzy Neural Network | Stock Prediction</title>
+    <link rel="stylesheet" href="q.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        window.onload = function() {
+            var tickers = ["AAPL", "TSLA", "RELIANCE", "TATA","INFOSYS","SBI"];
+            var index = 0;
+            setInterval(function() {
+                document.getElementById("stockTicker").innerText = tickers[index]; 
+                index = (index + 1) % tickers.length; 
+            }, 2000); 
+        };
+    </script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">FuzzyStock AI</a>  
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#">Predict</a>
+            <a href="#">Methodology</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <section class="home">
+        <span class="home-imgleft"></span>
+        <div class="home-content">
+            <h1>Hybrid Fuzzy Neural Network</h1>
+            <h3>Predict <span id="stockTicker">NIFTY50</span> Trends</h3>
+            <p>Our AI model combines fuzzy logic and neural networks to forecast stock market movements with 89% accuracy. Input a stock symbol to get started.</p>
+            <div class="ticker-container">
+                <div class="ticker">
+                    <span>📈 AAPL: $182.34 (+1.2%)</span>
+                    <span>📉 TSLA: $168.29 (-0.8%)</span>
+                    <span>📈 RELIANCE: ₹2,856 (+2.1%)</span>
+                    <span>📊 NIFTY50: 22,104.05 (+0.9%)</span>
+                    <span>📈 TATA: ₹3,421 (+1.5%)</span>
+                </div>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search stocks (e.g., AAPL)" class="search-input" id="stockInput">
+                <button class="search-btn" id="predictBtn">
+                    <i class="fas fa-chart-line"></i> Predict
+                </button>
+                <button class="voice-btn" id="voiceBtn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+            <div class="signal-container">
+                <div class="signal buy">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>BUY Signal</span>
+                </div>
+                <div class="signal sell">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>SELL Signal</span>
+                </div>
+            </div>  
+            <div class="home-sci">
+                <a href="#"><i class='bx bxl-github'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+            </div>
+        </div>
+        <span class="home-imghover"></span>
+    </section>
+    <script>
+        document.getElementById('predictBtn').addEventListener('click', function() {
+            const stock = document.getElementById('stockInput').value;
+            if (stock) {
+                alert(`Running prediction for ${stock}...`);
+            }
+        });
+    </script>
+</body>
+</html>
